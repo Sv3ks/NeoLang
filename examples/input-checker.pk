@@ -1,0 +1,7 @@
+set variable named ("user input") to ( user input )
+
+if ( value of variable named ( "user input" ) )  is ( "Hello, Patrick!" ) then
+	print ( "Hello, User!" )
+else:
+	print ( "You said: ", value of variable named ( "user input" ) )
+end

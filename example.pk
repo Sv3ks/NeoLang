@@ -1,3 +1,0 @@
-print("hej med dig")
-var(x,input("skriv her:"))
-print(var(x))
