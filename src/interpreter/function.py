@@ -1,9 +1,9 @@
-class Command:
+class Function:
 	def Execute(self, args):
 		return ''
 	def Name(self):
 		return ''
 	def Description(self):
 		return ''
-	def Usage(self):
+	def Arguments(self):
 		return ''
