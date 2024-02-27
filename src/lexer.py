@@ -1,7 +1,7 @@
 import re
 
 def clean_str(string):
-	return string.removeprefix(' ').removesuffix(' ')
+	return string.removeprefix(' ').removesuffix(' ') # Unhealthy :(
 
 def split_par(string):
 	chars = list(string)
@@ -65,7 +65,7 @@ def tokenize(field):
 			return ('string', field.removeprefix('"').removesuffix('"'))
 		else:
 			# ERROR
-			return ('Error... :(')
+			return ('error','ERROR AT LEXER.PY LINE 68')
 	# Functions
 	elif re.match(r'[.a-zA-Z]+', field):
 		return ('symbol',field)
@@ -77,7 +77,7 @@ def tokenize(field):
 		return ('number',field)
 	# None :(
 	else:
-		return ('Error... :(')
+		return ('error','ERROR AT LEXER.PY LINE 80')
 
 def tokenize_arr(arr):
 	tokens = []
@@ -95,7 +95,7 @@ def tokenize_arr(arr):
 
 
 
-def lexer(content):
+def lex(content):
 	lines = content.split('\n')
 	result = []
 	for line in lines:
