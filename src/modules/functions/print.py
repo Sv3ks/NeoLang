@@ -12,6 +12,6 @@ class Print(Function):
 		]
 
 		def parser(args):
-			print(args)
+			print(args[0])
 
 		self.parse = parser

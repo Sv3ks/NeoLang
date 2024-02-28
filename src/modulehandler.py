@@ -10,12 +10,7 @@ def get_functions():
 			# Import Function
 			exec(f'from modules.functions.{module} import {functionClass}')
 
-			# Get Function Class
-			function_class = eval(f'{functionClass}()')
-			# Get Patterns From Class
-			function_patterns = function_class.Patterns()
-
-			# Add function to list
-			functions.append((function_class, function_patterns))
+			# Add function class to list
+			functions.append(eval(f'{functionClass}()'))
 	
 	return functions
