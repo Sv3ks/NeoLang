@@ -22,19 +22,27 @@ def str_to_type(string):
 			value = string.removeprefix('"').removesuffix('"')
 		else:
 			print('ERROR - STRING IS MISSING END QUOTE')
-	elif match(r'[\d+.]+',string): #? Could also be r'[0-.]+'?
-		type = 'number'
-		value = string
 	elif string in '+/*':
 		type = 'expression'
+		value = string
+	elif match(r'[\d+.]+',string): #? Could also be r'[0-9.]+'?
+		type = 'number'
 		value = string
 	elif match(r'[a-zA-Z ]+',string):
 		type = 'name'
 		value = string
 	else:
 		print('ERROR: COULDT NOT DETECT ANY TYPE FROM STRING')
-
 	return { 'type': type, 'value': value}
+
+def str_to_type_from_arr(arr):
+	result = []
+	for item in arr:
+		if isinstance(item,str):
+			result.append(str_to_type(item))
+		else:
+			result.append(str_to_type_from_arr(item))
+	return result
 
 def tokenize(content):
 	chars = list(content)
@@ -85,42 +93,14 @@ def tokenize(content):
 	pattern = extract_pattern(result)
 	args = extract_args(result)
 
-	# Tokenizing args:
-	"""
-	From:
-	[
-		'EXAMPLE NAME',
-		'"EXAMPLE STRING"',
-		'42',
-		'+'
-	]
-	To:
-	[
-		{
-			'type': 'name',
-			'value': 'EXAMPLE NAME'
-		},
-		{
-			'type': 'string',
-			'value': 'EXAMPLE STRING'
-		},
-		{
-			'type': 'number',
-			'value': '42'
-		},
-		{
-			'type': 'expression',
-			'value': '+'
-		}
-	]
-	"""
+	# Tokenizing args
 
-
+	args = str_to_type_from_arr(args)
 
 	result = {'pattern': pattern, 'args': args}
 
 	# Return tokenized content
 	return result
 
-sample_code = 'hello ("this is a string" + 42 + name) and here...'
+sample_code = 'hello ("this is a string" + 42 + name (a)) and here...'
 print(dumps(tokenize(sample_code),sort_keys=False, indent=4))
