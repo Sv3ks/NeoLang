@@ -46,20 +46,20 @@ def str_to_type_from_arr(arr):
 
 def define_expressions(args):
 	result = []
-	in_expr, temp_expr
+	in_expr, temp_pattern
 
 	in_expr = False
-	temp_expr = ''
+	temp_pattern = []
 
 	# Iterate through args
 	for i in range((len(args))):
 		if isinstance(args[i],dict) and args[i]['type'] == 'NAME':
 			in_expr = True
-			temp_expr += args[i]['value']
+			temp_pattern += args[i]['value'] + ' '
 		elif isinstance(args[i],list):
-
-
-
+			in_expr = True
+			temp_pattern += '$ '
+			temp_args.append()
 
 def tokenize(content):
 	chars = list(content)
