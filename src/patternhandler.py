@@ -1,3 +1,5 @@
+ # TODO: Move patternhandler.py -> tokenizer.py reasoned that it is simply the place for it :) 
+
 def extract_pattern(tokens):
 	pattern = ''
 
@@ -17,4 +19,3 @@ def extract_args(tokens):
 			args += token
 
 	return args
-	# [('string','print'),[('string','Hello, World!')]]

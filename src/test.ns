@@ -1,1 +1,1 @@
-print ( value of variable named ("hej") )
+print (test(test2("test2 works!!")))

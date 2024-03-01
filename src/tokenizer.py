@@ -2,6 +2,8 @@ from patternhandler import extract_args, extract_pattern
 from json import dumps
 from re import match
 
+ # TODO: Expression in expression recognition
+
 def clean_arr(arr):
 	cleaned_arr = []
 	for item in arr:
@@ -44,22 +46,80 @@ def str_to_type_from_arr(arr):
 			result.append(str_to_type_from_arr(item))
 	return result
 
-def define_expressions(args):
+def extract_simple_tokens(dicted_tokens):
+	simple_tokens = []
+
+	for token in dicted_tokens:
+		if isinstance(token,dict):
+			simple_tokens.append(token['value'])
+		else:
+			simple_tokens.append(token)
+	
+	return simple_tokens
+
+def get_expression(content):
+	simple_token = extract_simple_tokens(content)
+
+	pattern = extract_pattern(simple_token)
+	args = extract_args(simple_token)
+
+	return {'type':'EXPRESSION', 'pattern': pattern, 'args': args}
+
+
+def define_expressions(tokens):
 	result = []
-	in_expr, temp_pattern
-
 	in_expr = False
-	temp_pattern = []
 
-	# Iterate through args
-	for i in range((len(args))):
-		if isinstance(args[i],dict) and args[i]['type'] == 'NAME':
-			in_expr = True
-			temp_pattern += args[i]['value'] + ' '
-		elif isinstance(args[i],list):
-			in_expr = True
-			temp_pattern += '$ '
-			temp_args.append()
+	temp_list = []
+	temp_str = ''
+
+	for token in tokens:
+		if isinstance(token,dict):
+			if token['type'] == 'NAME':
+				if not in_expr:
+					in_expr = True
+				temp_str += token['value'] + ' '
+			else:
+				if in_expr:
+					temp_list.append(temp_str)
+					result.append(temp_list)
+					temp_str = ''
+					temp_list = []
+				result.append(token)
+
+		elif isinstance(token,list):
+			if in_expr:
+				temp_list.append(temp_str)
+				temp_str = ''
+			else:
+				in_expr = True
+			temp_list.append(token)
+
+	temp_list.append(temp_str.removesuffix(' '))
+	result.append(temp_list)
+
+	result = clean_arr(result)
+
+	# Make strings names (idk)
+	for item in result:
+		item_index = result.index(item)
+		if isinstance(item,list):
+			for value in item:
+				if isinstance(value,str):
+					index = result[item_index].index(value)
+					result[item_index].pop(index)
+					result[item_index].insert(index,{'type':'NAME', 'value':value})
+
+	# Convert lists (not yet defined expressions ig) to formatted expressions
+	for token in result:
+		if isinstance(token,list):
+			index = result.index(token)
+			result.pop(index)
+			result.insert(index,get_expression(token))
+
+	#print(result)
+
+	return result
 
 def tokenize(content):
 	chars = list(content)
@@ -100,15 +160,13 @@ def tokenize(content):
 	pattern = extract_pattern(result)
 	args = extract_args(result)
 
-	# Merging multiple names into expression
-
-	#args = define_expressions(args)
-
 	# Tokenizing args
 
 	args = str_to_type_from_arr(args)
 
-	#TODO Iterate through args and check for names. Names and args belonging to names should be formatted as an expression.
+	# Merging names into expressions
+
+	args = define_expressions(args)
 
 	result = {'type': 'FUNCTION', 'pattern': pattern, 'args': args}
 
