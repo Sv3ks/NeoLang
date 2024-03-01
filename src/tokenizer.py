@@ -18,18 +18,18 @@ def str_to_type(string):
 
 	if string.startswith('"'):
 		if string.endswith('"'):
-			type = 'string'
+			type = 'STRING'
 			value = string.removeprefix('"').removesuffix('"')
 		else:
 			print('ERROR - STRING IS MISSING END QUOTE')
-	elif string in '+/*':
-		type = 'expression'
+	elif string in '+-*/':
+		type = 'OPERATOR'
 		value = string
 	elif match(r'[\d+.]+',string): #? Could also be r'[0-9.]+'?
-		type = 'number'
+		type = 'NUMBER'
 		value = string
 	elif match(r'[a-zA-Z ]+',string):
-		type = 'name'
+		type = 'NAME'
 		value = string
 	else:
 		print('ERROR: COULDT NOT DETECT ANY TYPE FROM STRING')
@@ -43,6 +43,23 @@ def str_to_type_from_arr(arr):
 		else:
 			result.append(str_to_type_from_arr(item))
 	return result
+
+def define_expressions(args):
+	result = []
+	in_expr, temp_expr
+
+	in_expr = False
+	temp_expr = ''
+
+	# Iterate through args
+	for i in range((len(args))):
+		if isinstance(args[i],dict) and args[i]['type'] == 'NAME':
+			in_expr = True
+			temp_expr += args[i]['value']
+		elif isinstance(args[i],list):
+
+
+
 
 def tokenize(content):
 	chars = list(content)
@@ -80,27 +97,24 @@ def tokenize(content):
 
 	result = clean_arr(result)
 
-	# Final Process: Turn splitted content into output
-
-	"""
-	Output needs to be
-	{
-		'pattern': 'PATTERN HERE'
-		'args': ['EXAMPLE ARG1',['EXAMPLE ARG2','EXAMPLE ARG3']]
-	}
-	"""
-
 	pattern = extract_pattern(result)
 	args = extract_args(result)
+
+	# Merging multiple names into expression
+
+	#args = define_expressions(args)
 
 	# Tokenizing args
 
 	args = str_to_type_from_arr(args)
 
-	result = {'pattern': pattern, 'args': args}
+	#TODO Iterate through args and check for names. Names and args belonging to names should be formatted as an expression.
+
+	result = {'type': 'FUNCTION', 'pattern': pattern, 'args': args}
 
 	# Return tokenized content
 	return result
 
-sample_code = 'hello ("this is a string" + 42 + name (a)) and here...'
-print(dumps(tokenize(sample_code),sort_keys=False, indent=4))
+sample_code = open('./src/test.ns').read()
+f = open('output.json','w')
+f.write(dumps(tokenize(sample_code),sort_keys=False, indent=4))
