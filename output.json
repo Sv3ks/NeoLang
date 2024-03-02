@@ -1,0 +1,46 @@
+{
+    "type": "FUNCTION",
+    "pattern": "write $ to console",
+    "args": [
+        {
+            "type": "EXPRESSION",
+            "pattern": "value of variable named $",
+            "args": [
+                {
+                    "type": "STRING",
+                    "value": "test variable 1 (this is a test)!!!"
+                }
+            ]
+        },
+        {
+            "type": "OPERATOR",
+            "value": "+"
+        },
+        {
+            "type": "NUMBER",
+            "value": "1"
+        },
+        {
+            "type": "OPERATOR",
+            "value": "*"
+        },
+        {
+            "type": "EXPRESSION",
+            "pattern": "$",
+            "args": [
+                {
+                    "type": "NUMBER",
+                    "value": "55"
+                },
+                {
+                    "type": "OPERATOR",
+                    "value": "-"
+                },
+                {
+                    "type": "NUMBER",
+                    "value": "42"
+                }
+            ]
+        }
+    ]
+}

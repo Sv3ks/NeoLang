@@ -93,12 +93,13 @@ def define_expressions(tokens):
 				temp_str = ''
 			else:
 				in_expr = True
-			temp_list.append(token)
+			temp_list.append(define_expressions(token))
 
 	temp_list.append(temp_str.removesuffix(' '))
 	result.append(temp_list)
 
 	result = clean_arr(result)
+
 
 	# Make strings names (idk)
 	for item in result:
@@ -117,7 +118,10 @@ def define_expressions(tokens):
 			result.pop(index)
 			result.insert(index,get_expression(token))
 
-	#print(result)
+	#* Finally, clear result for expression(s) with emtpy patterns 
+	for token in result:
+		if token['type'] == 'EXPRESSION' and token['pattern'] == '':
+			result.pop(result.index(token))
 
 	return result
 
