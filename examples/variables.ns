@@ -1,0 +1,2 @@
+set variable named ("my variable") to (42)
+print (value of variable named "my variable") to console

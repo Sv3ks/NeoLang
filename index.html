@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+	<script src="https://kit.fontawesome.com/46b7ceee20.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/x-icon" href="assets\icons\ns-dark.svg">
@@ -8,18 +13,76 @@
 	<title>NeoScript</title>
 </head>
 <body>
-	<nav>
-		<a href="index.html" id="logo-frame">
+
+	<section id="hero">
+		<div id="intro-text">
+			<span id="title">NeoScript</span> <br>
+			<span id="sub">'The simplest scripting language ever'</span>
+		</div>
+	</section>
+	<br>
+	<section id="features">
+		<div id="intro-text">
+			<span id="title">Feature</span> <br>
+			<span id="sub">Showcase syntax in this section.</span> <br>
+		</div>
+	</section>
+	<br>
+	<section id="about">
+		<div id="intro-text">
+			<span id="title">About</span> <br>
+			<span id="sub">About the project.</span> <br>
+		</div>
+	</section>
+	<br>
+	<section id="try">
+		<div id="intro-text">
+			<span id="title">Try</span> <br>
+			<span id="sub">Links to try the project.</span> <br>
+		</div>
+	</section>
+	<br>
+	<section id="future">
+		<div id="intro-text">
+			<span id="title">Future</span> <br>
+			<span id="sub">The future of the project here.</span> <br>
+		</div>
+	</section>
+
+	<!--
+		set variable named ("my variable") to (42)
+		print (value of variable named "my variable") to console
+	-->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<a href="#">
+					<img class="footer-logo" src="assets\icons\ns-light.svg">
+				</a>
+				<div class="footer-links">
+				<div class="footer-bottom">
+					<p>&copy; 2023 Sv3ks. All rights reserved.</p>
+				</div>
+				</div>
+				<div class="footer-social">
+				<ul class="social-icons">
+					<li><a href="#"><i class="fab fa-github"></i></a></li>
+					<li><a href="#"><i class="fa-regular fa-file"></i></a></li>
+					<li><a href="#"><i class="fa-regular fa-floppy-disk"></i></a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<nav class="sticky">
+		<a href="#" id="logo-frame">
 			<img id="logo" src="assets\icons\ns-dark.svg">
 		</a>
-		<div class="hamburger" id="hamburger">
-			<span class="bar"></span>
-			<span class="bar"></span>
-			<span class="bar"></span>
-		</div>
 		<ul>
 			<li class="nav-item">
-				<a href="#about" class="nav-link" id="nav-link">Features</a>
+				<a href="#features" class="nav-link" id="nav-link">Features</a>
 			</li>
 			<li class="nav-item">
 				<a href="#about" class="nav-link" id="nav-link">About</a>
@@ -27,13 +90,12 @@
 			<li class="nav-item">
 				<a href="#try" class="nav-link" id="nav-link">Try</a>
 			</li>
+			<li class="nav-item">
+				<a href="#future" class="nav-link" id="nav-link">Future</a>
+			</li>
 		</ul>
 	</nav>
-	<section class="hero">
-		<div class="intro-text">
-			<span id="title">NeoScript</span> <br>
-			<span id="sub">'The simplest scripting language ever'</span>
-		</div>
-	</section>
+
+	<script src="assets/js/sticky.js"></script>
 </body>
 </html>

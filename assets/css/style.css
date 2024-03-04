@@ -12,6 +12,7 @@
 	--third-color: #888;
 	--line-height: 1.7rem;
 	--transition: 0.25s ease-in;
+	--footer: #111;
 }
 
 /* Smooth scroll effect */
@@ -20,7 +21,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 /* Resets */
@@ -28,7 +29,6 @@ html {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	transition: var(--transition);
 }
 
 body {
@@ -37,14 +37,18 @@ body {
 
 	background-image: radial-gradient(circle at 1px 1px, var(--dots) 1px, transparent 0);
 	background-size: 20px 20px;  
+
+	scroll-behavior: smooth;
 }
 
 a {
+	transition: var(--transition);
 	text-decoration: none;
 	color: var(--primary-color)
 }
 
 a:hover {
+	transition: var(--transition);
 	color: var(--secondary-color)
 }
 
@@ -69,16 +73,27 @@ ul {
 }
 
 nav {
+	background-color: #00000011;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	top: 0;
 	align-items: center;
 	padding: 1rem 1.5rem;
 }  
 
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
 /* Hero */
 
-.intro-text {
-	margin: 10rem;
+section {
+	display: table-cell; vertical-align: middle;
+	width: 100vw;
+	height: 100vh;
 	text-align: center;
 }
 
@@ -93,4 +108,81 @@ nav {
 #sub {
 	font-size: 25px;
 	color: var(--third-color)
+}
+
+/* Footer */
+
+.footer {
+	font-size: 18px;
+	background-color: var(--footer);
+	color: #fff;
+	padding: 30px 0;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 50px;
+}
+
+.footer-content {
+	display: grid;
+	grid-template-columns: 25% 50% 25%;
+}
+
+.social-icons {
+	vertical-align: middle;
+	list-style: none;
+	padding: 0;
+	margin-left: 14vw;
+	margin-right: 2vw;
+}
+
+.social-icons li {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.social-icons li:last-child {
+	margin-right: 0;
+}
+
+.social-icons a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.footer-bottom {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.footer-bottom p {
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.footer-content {
+		grid-template-columns: repeat(1, 1fr);
+		row-gap: 20px;
+	}
+	.footer-menu{
+		text-align: left;
+	}
+	.footer-menu li {
+	display: block;
+	margin-bottom: 10px;
+	}
+}
+
+.attribute{
+	position: absolute;
+	bottom: 10px;
+}
+
+.footer-logo {
+	height: 4rem;
+	margin-right: 14vw;
+	padding: 0;
 }
