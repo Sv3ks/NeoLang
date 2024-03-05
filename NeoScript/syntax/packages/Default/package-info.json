@@ -1,0 +1,42 @@
+{
+	"name": "Default Package",
+	"description": "Contains the default syntax for NeoScript",
+	
+	"requirements": [],
+	
+	"effects":
+	{
+		"Print": {
+			"path": "basic/print.py",
+			"patterns": [
+				"print $",
+				"print $ to console",
+				"write $",
+				"write $ to console"
+			]
+		}
+	},
+
+	"expressions": 
+	{
+		"Input": {
+			"path": "basic/input.py",
+			"patterns": [
+				"input",
+				"get input",
+				"user input",
+				"get user input"
+			]
+		},
+
+		"PrefixedInput": {
+			"path": "basic/input.py",
+			"patterns": [
+				"input with prefix $",
+				"get input with prefix $",
+				"user input with prefix $",
+				"get user input prefix $"
+			]
+		}
+	}
+}
