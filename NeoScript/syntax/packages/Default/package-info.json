@@ -5,9 +5,10 @@
 	"requirements": [],
 	
 	"effects":
-	{
-		"Print": {
-			"path": "basic/print.py",
+	[
+		{
+			"parser": "Print",
+			"filePath": "basic.print",
 			"patterns": [
 				"print $",
 				"print $ to console",
@@ -15,12 +16,13 @@
 				"write $ to console"
 			]
 		}
-	},
+	],
 
 	"expressions": 
-	{
-		"Input": {
-			"path": "basic/input.py",
+	[
+		{
+			"parser": "Input",
+			"filePath": "basic.input",
 			"patterns": [
 				"input",
 				"get input",
@@ -29,8 +31,9 @@
 			]
 		},
 
-		"PrefixedInput": {
-			"path": "basic/input.py",
+		{
+			"parser": "PrefixedInput",
+			"filePath": "basic.input",
 			"patterns": [
 				"input with prefix $",
 				"get input with prefix $",
@@ -38,5 +41,5 @@
 				"get user input prefix $"
 			]
 		}
-	}
+	]
 }
