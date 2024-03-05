@@ -1,8 +1,24 @@
-from patternhandler import extract_args, extract_pattern
-from json import dumps
 from re import match
 
- # TODO: Expression in expression recognition
+def extract_pattern(tokens):
+	pattern = ''
+
+	for token in tokens:
+		if isinstance(token,str):
+			pattern += token
+		else:
+			pattern += '$'
+
+	return pattern
+
+def extract_args(tokens):
+	args = []
+
+	for token in tokens:
+		if isinstance(token,list):
+			args += token
+
+	return args
 
 def clean_arr(arr):
 	cleaned_arr = []
@@ -176,7 +192,3 @@ def tokenize(content):
 
 	# Return tokenized content
 	return result
-
-sample_code = open('./src/test.ns').read()
-f = open('output.json','w')
-f.write(dumps(tokenize(sample_code),sort_keys=False, indent=4))
