@@ -36,10 +36,10 @@ def str_to_type(string):
 
 	if string.startswith('"'):
 		if string.endswith('"'):
-			type = 'STRING'
+			type = 'TEXT'
 			value = string.removeprefix('"').removesuffix('"')
 		else:
-			print('ERROR - STRING IS MISSING END QUOTE')
+			print('ERROR - TEXT IS MISSING END QUOTE')
 	elif string in '+-*/':
 		type = 'OPERATOR'
 		value = string
@@ -188,7 +188,7 @@ def tokenize(content):
 
 	args = define_expressions(args)
 
-	result = {'type': 'FUNCTION', 'pattern': pattern, 'args': args}
+	result = {'type': 'EFFECT', 'pattern': pattern, 'args': args}
 
 	# Return tokenized content
 	return result
