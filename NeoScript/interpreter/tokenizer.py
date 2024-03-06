@@ -192,3 +192,9 @@ def tokenize(content):
 
 	# Return tokenized content
 	return result
+
+def tokenize_content(content):
+	tokens = []
+	for line in content.split('\n'):
+		tokens.append(tokenize(line))
+	return tokens
