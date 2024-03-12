@@ -24,7 +24,10 @@ class Package:
 		for effect in info['effects']:
 			parser = effect['parser']
 			exec(f'from {effect['filePath']} import {parser}')
-			effects.append(Parser(eval(parser),effect['patterns']))
+			effects.append(Parser(
+				parser = eval(parser),
+				patterns = effect['patterns']
+			))
 		self.effects = effects
 
 		#* The same with expressions
@@ -32,5 +35,8 @@ class Package:
 		for expression in info['expressions']:
 			parser = expression['parser']
 			exec(f'from {expression['filePath']} import {parser}')
-			expressions.append(Parser(eval(parser),expression['patterns']))
+			expressions.append(Parser(
+				parser = eval(parser),
+				patterns = expression['patterns'])
+			)
 		self.expressions = expressions
