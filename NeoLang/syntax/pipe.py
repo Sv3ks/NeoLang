@@ -13,4 +13,4 @@ def get_packages():
 	for package in listdir(dir):
 		packages.append(Package(f'{dir}/{package}'))
 	
-	return package
+	return packages

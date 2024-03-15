@@ -16,7 +16,7 @@ def extract_args(tokens):
 
 	for token in tokens:
 		if isinstance(token,list):
-			args += token
+			args.append(token)
 
 	return args
 
@@ -186,7 +186,10 @@ def tokenize(content):
 
 	# Merging names into expressions
 
-	args = define_expressions(args)
+	temp = []
+	for arg in args:
+		temp.append(define_expressions(arg))
+	args = temp
 
 	result = {'type': 'EFFECT', 'pattern': pattern, 'args': args}
 

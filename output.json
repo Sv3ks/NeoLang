@@ -1,10 +1,15 @@
-{
-    "type": "EFFECT",
-    "pattern": "print $",
-    "args": [
-        {
-            "type": "TEXT",
-            "value": "Hello, World!"
-        }
-    ]
-}
+[
+    {
+        "type": "EFFECT",
+        "pattern": "print $",
+        "args": [
+            [
+                {
+                    "type": "EXPRESSION",
+                    "pattern": "input",
+                    "args": []
+                }
+            ]
+        ]
+    }
+]
