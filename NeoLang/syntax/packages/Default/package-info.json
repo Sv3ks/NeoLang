@@ -32,6 +32,31 @@
 		},
 
 		{
+			"parser": "Pi",
+			"filePath": "mathematics",
+			"patterns": [
+				"pi"
+			]
+		},
+
+		{
+			"parser": "Sqrt",
+			"filePath": "mathematics",
+			"patterns": [
+				"sqrt $",
+				"square root of $"
+			]
+		},
+
+		{
+			"parser": "Potency",
+			"filePath": "mathematics",
+			"patterns": [
+				"$to the power of $"
+			]
+		},
+
+		{
 			"parser": "PrefixedInput",
 			"filePath": "basic.input",
 			"patterns": [

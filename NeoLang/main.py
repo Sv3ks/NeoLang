@@ -18,9 +18,9 @@ if __name__ == '__main__':
 	tokens = tokenize_content(sample_code)
 	parser.add_tokens(tokens)
 
-	#* Parse everything
-	parser.parse()
-
 	#? Logging
 	f = open('output.json','w')
 	f.write(dumps(tokens,sort_keys=False, indent=4))
+
+	#* Parse everything
+	parser.parse()

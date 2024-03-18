@@ -6,8 +6,29 @@
             [
                 {
                     "type": "EXPRESSION",
-                    "pattern": "input",
-                    "args": []
+                    "pattern": "$to the power of $",
+                    "args": [
+                        [
+                            {
+                                "type": "NUMBER",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "type": "NUMBER",
+                                "value": "2"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "type": "OPERATOR",
+                    "value": "*"
+                },
+                {
+                    "type": "NUMBER",
+                    "value": "2"
                 }
             ]
         ]
