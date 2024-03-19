@@ -1,6 +1,6 @@
 from json import loads
 from sys import path as syspath
-from syntax.classes.parser import Parser
+from syntax.parser import Parser
 
 class Package:
 	def __init__(self, path):
@@ -23,7 +23,7 @@ class Package:
 		effects = []
 		for effect in info['effects']:
 			parser = effect['parser']
-			exec(f'from {effect['filePath']} import {parser}')
+			exec(f'from {effect["filePath"]} import {parser}')
 			effects.append(Parser(
 				parser = eval(parser),
 				patterns = effect['patterns']
@@ -34,7 +34,7 @@ class Package:
 		expressions = []
 		for expression in info['expressions']:
 			parser = expression['parser']
-			exec(f'from {expression['filePath']} import {parser}')
+			exec(f'from {expression["filePath"]} import {parser}')
 			expressions.append(Parser(
 				parser = eval(parser),
 				patterns = expression['patterns'])

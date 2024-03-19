@@ -1,15 +1,20 @@
-from json import dumps
+# Get rid of pycache
 import sys
 sys.dont_write_bytecode = True
-from syntax.pipe import get_packages
-from interpreter.tokenizer import tokenize_content
-from interpreter.parser import Parser
 
-if __name__ == '__main__':
-	sample_code = open('./test.neo').read()
-	
+# Utils 
+from json import dumps
+from os import path, getcwd
+
+# Internal
+from syntax import *
+from interpreter import *
+
+def Main():
+	sample_code = open(f'{path.abspath(getcwd())}/{sys.argv[1]}').read()
+
 	parser = Parser()
-	
+
 	#* Load and feed packages to Parser
 	packages = get_packages()
 	parser.load_packages(packages)
@@ -24,3 +29,5 @@ if __name__ == '__main__':
 
 	#* Parse everything
 	parser.parse()
+
+Main()

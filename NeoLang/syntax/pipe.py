@@ -1,8 +1,7 @@
  #* Pipe between packages and interpreter
 
 from os import listdir, path
-from pathlib import Path
-from syntax.classes.package import Package
+from syntax.package import Package
 
 def get_packages():
 	packages = []
