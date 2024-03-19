@@ -32,6 +32,15 @@
 		},
 
 		{
+			"parser": "Sin",
+			"filePath": "mathematics",
+			"patterns": [
+				"sin $",
+				"sine of $"
+			]
+		},
+
+		{
 			"parser": "Pi",
 			"filePath": "mathematics",
 			"patterns": [

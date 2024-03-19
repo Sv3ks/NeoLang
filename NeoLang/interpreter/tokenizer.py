@@ -43,7 +43,7 @@ def str_to_type(string):
 	elif string in '+-*/':
 		type = 'OPERATOR'
 		value = string
-	elif match(r'[\d+.]+',string): #? Could also be r'[0-9.]+'?
+	elif match(r'[\d+.]+',string) or match(r'-[\d+.]+',string): #? Could also be r'[0-9.]+'?
 		type = 'NUMBER'
 		value = string
 	elif match(r'[a-zA-Z ]+',string):

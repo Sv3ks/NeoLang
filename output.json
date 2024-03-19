@@ -6,29 +6,15 @@
             [
                 {
                     "type": "EXPRESSION",
-                    "pattern": "$to the power of $",
+                    "pattern": "sine of $",
                     "args": [
                         [
                             {
                                 "type": "NUMBER",
-                                "value": "4"
-                            }
-                        ],
-                        [
-                            {
-                                "type": "NUMBER",
-                                "value": "2"
+                                "value": "-10"
                             }
                         ]
                     ]
-                },
-                {
-                    "type": "OPERATOR",
-                    "value": "*"
-                },
-                {
-                    "type": "NUMBER",
-                    "value": "2"
                 }
             ]
         ]
