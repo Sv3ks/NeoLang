@@ -5,16 +5,8 @@
         "args": [
             [
                 {
-                    "type": "EXPRESSION",
-                    "pattern": "$",
-                    "args": [
-                        [
-                            {
-                                "type": "NUMBER",
-                                "value": "10"
-                            }
-                        ]
-                    ]
+                    "type": "TEXT",
+                    "value": "Hello, World!"
                 }
             ]
         ]

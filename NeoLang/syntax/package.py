@@ -1,6 +1,6 @@
 from json import loads
 from sys import path as syspath
-from syntax.parser import Parser
+from NeoLang.syntax.parser import Parser
 
 class Package:
 	def __init__(self, path):

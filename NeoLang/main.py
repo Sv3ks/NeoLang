@@ -7,8 +7,8 @@ from json import dumps
 from os import path, getcwd
 
 # Internal
-from syntax import *
-from interpreter import *
+from NeoLang.syntax import *
+from NeoLang.interpreter import *
 
 def Main():
 	content = open(f'{path.abspath(getcwd())}/{sys.argv[1]}').read()
@@ -24,10 +24,8 @@ def Main():
 	parser.add_tokens(tokens)
 
 	#? Logging
-	f = open('output.json','w')
-	f.write(dumps(tokens,sort_keys=False, indent=4))
+	#f = open('output.json','w')
+	#f.write(dumps(tokens,sort_keys=False, indent=4))
 
 	#* Parse everything
 	parser.parse()
-
-Main()

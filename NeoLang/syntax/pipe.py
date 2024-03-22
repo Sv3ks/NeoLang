@@ -1,7 +1,7 @@
  #* Pipe between packages and interpreter
 
 from os import listdir, path
-from syntax.package import Package
+from NeoLang.syntax.package import Package
 
 def get_packages():
 	packages = []

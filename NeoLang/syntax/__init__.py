@@ -1,1 +1,1 @@
-from syntax.pipe import get_packages
+from NeoLang.syntax.pipe import get_packages
