@@ -11,7 +11,7 @@ from syntax import *
 from interpreter import *
 
 def Main():
-	sample_code = open(f'{path.abspath(getcwd())}/{sys.argv[1]}').read()
+	content = open(f'{path.abspath(getcwd())}/{sys.argv[1]}').read()
 
 	parser = Parser()
 
@@ -20,7 +20,7 @@ def Main():
 	parser.load_packages(packages)
 
 	#* Tokenize file and feed tokens to Parser
-	tokens = tokenize_content(sample_code)
+	tokens = tokenize_content(content)
 	parser.add_tokens(tokens)
 
 	#? Logging

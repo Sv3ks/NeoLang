@@ -1,5 +1,8 @@
 from math import pi, sqrt, sin
 
+def Parenthesis(args):
+	return str(args[0])
+
 def Pi(args):
 	return str(pi)
 

@@ -32,6 +32,14 @@
 		},
 
 		{
+			"parser": "Parenthesis",
+			"filePath": "mathematics",
+			"patterns": [
+				"$"
+			]
+		},
+
+		{
 			"parser": "Sin",
 			"filePath": "mathematics",
 			"patterns": [

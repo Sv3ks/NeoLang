@@ -6,12 +6,12 @@
             [
                 {
                     "type": "EXPRESSION",
-                    "pattern": "sine of $",
+                    "pattern": "$",
                     "args": [
                         [
                             {
                                 "type": "NUMBER",
-                                "value": "-10"
+                                "value": "10"
                             }
                         ]
                     ]
