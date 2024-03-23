@@ -16,7 +16,7 @@ setup(
 	description='The Interpreter for the Neo Programming Language',
 	long_description=description,
 	long_description_content_type='text/markdown',
-	url='https://https://github.com/NeoLangTeam/NeoLang',
+	url='https://github.com/NeoLangTeam/NeoLang',
 	classifiers=[
 		'Development Status :: 2 - Pre-Alpha',
 		'Intended Audience :: Education',
@@ -28,7 +28,7 @@ setup(
 	license='GPLv3',
 	keywords='programming-language language interpreter scripting syntax', #* totally not made by chatgpt ;)
 	project_urls={
-		'Documentation': 'https://your-package-name.readthedocs.io/',
+		'Documentation': 'https://github.com/NeoLangTeam/NeoLang',
 		'Source': 'https://github.com/NeoLangTeam/NeoLang',
 		'Tracker': 'https://github.com/NeoLangTeam/NeoLang/issues',
 	},
