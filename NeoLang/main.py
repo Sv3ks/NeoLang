@@ -12,3 +12,4 @@ def Main():
 		if args[0].lower() != command.lower(): continue
 		args.pop(0)
 		COMMANDS[command](args)
+		return
