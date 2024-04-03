@@ -84,7 +84,11 @@ class Parser:
 					args = []
 					for arg in token['args']:
 						args.append(self.parse_args(arg))
-					return effect.parser(args)
+					return effect.parser(
+						args = args,
+						raw_args = token['args'],
+						parser = self
+					)
 		#! NO EFFECT FOUND - THROW ERROR
 		print('no effect')
 

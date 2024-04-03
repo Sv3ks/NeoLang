@@ -3,7 +3,7 @@ import sys
 sys.dont_write_bytecode = True
 
 # Internal
-from neolang.commands import COMMANDS
+from .commands import COMMANDS
 
 def cli():
 	args = sys.argv
