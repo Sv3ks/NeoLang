@@ -1,2 +1,2 @@
-from NeoLang.interpreter.tokenizer import tokenize_content
-from NeoLang.interpreter.parser import Parser
+from .tokenizer import tokenize_content
+from .parser import Parser

@@ -2,8 +2,8 @@
 from os import path, getcwd
 
 # Internal
-from NeoLang.syntax import *
-from NeoLang.interpreter import *
+from neolang.syntax import *
+from neolang.interpreter import *
 
 def run(args):
 	content = open(f'{path.abspath(getcwd())}/{args[0]}').read()

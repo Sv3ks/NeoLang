@@ -1,5 +1,5 @@
-from NeoLang.interpreter.operator import Operator
-from NeoLang.interpreter.tokenizer import str_to_type
+from .operator import Operator
+from .tokenizer import str_to_type
 
 class Parser:
 	def __init__(self, packages = [], tokens = []) -> None:

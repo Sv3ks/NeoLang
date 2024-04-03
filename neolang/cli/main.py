@@ -3,9 +3,9 @@ import sys
 sys.dont_write_bytecode = True
 
 # Internal
-from NeoLang.commands import COMMANDS
+from neolang.commands import COMMANDS
 
-def Main():
+def cli():
 	args = sys.argv
 	args.pop(0)
 	if args == []:
@@ -17,3 +17,6 @@ def Main():
 		args.pop(0)
 		COMMANDS[command](args)
 		return
+
+if __name__ == '__main__':
+	cli()

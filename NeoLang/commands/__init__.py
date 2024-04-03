@@ -1,8 +1,8 @@
-from NeoLang.commands.run import run
-from NeoLang.commands.version import version
-from NeoLang.commands.packages import packages
-from NeoLang.commands.gettokens import gettokens
-from NeoLang.commands.parsetokens import parsetokens
+from .run import run
+from .version import version
+from .packages import packages
+from .gettokens import gettokens
+from .parsetokens import parsetokens
 
 COMMANDS = {
 	'run': run,

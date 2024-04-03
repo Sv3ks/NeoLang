@@ -38,7 +38,7 @@ setup(
 	zip_safe=False,
 	entry_points={
 		'console_scripts': [
-			'neo = NeoLang:Main',
+			'neo = neolang:cli',
 		],
 	},
 )
